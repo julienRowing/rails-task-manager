@@ -1,0 +1,18 @@
+<!-- new.html.erb -->
+
+<form action="/tasks" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <br>
+    <input type="text" name="task[title]" id="title">
+  </div>
+  <div class="form-group">
+  <label for="details">Details</label>
+  <br>
+  <input type="text" name="task[details]" id="details">
+  </div>
+  <button type="submit" class="btn btn-primary">Create Task</button>
+</form>
+<br>
+<%= link_to "Back to list", tasks_path %>

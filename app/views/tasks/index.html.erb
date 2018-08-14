@@ -1,0 +1,21 @@
+<!-- index.html.erb -->
+<h1>My tasks</h1>
+
+
+<ul>
+  <% @tasks.each do |task| %>
+    <p>
+      <%= task.completed ? '[x]' : '[  ]'  %>
+      <%= link_to task.title, task_path(task.id) %>
+
+
+      <%= link_to delete_task_path(task.id),
+      method: :delete,
+      data: { confirm: "Are you sure?" } do %>
+        <i class='fas fa-trash-alt'></i>
+      <% end %>
+    </p>
+  <% end %>
+</ul>
+<br>
+<%= link_to "+ Add a new task", tasks_new_path %>
